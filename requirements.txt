@@ -1,0 +1,6 @@
+langchain_together
+pandas
+langchain 
+langchain_experimental
+matplotlib
+python-dotenv

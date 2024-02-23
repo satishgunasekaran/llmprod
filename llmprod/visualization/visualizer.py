@@ -20,6 +20,9 @@ class Visualizer:
                     top_k=1,
                     together_api_key=together_api_key,
                 )
+            
+    def format_code(self, code):
+        return code.replace("```python", "").replace("```", "").strip()
     
     def analyze_df(self, query):
         agent = create_pandas_dataframe_agent(self.llm, self.df, verbose=True) 
@@ -29,15 +32,16 @@ class Visualizer:
             
             - Test the code
             - Ensure indentation
+            - Dont show the output
             
             Output 
-            Code for visualization of the query inside 
+            Return Only the Code for visualization 
             
             
         """
         response = agent.run(prompt)
         
-        return response
+        return  self.format_code(response)
         
         
         

@@ -24,11 +24,15 @@ class Visualizer:
     def analyze_df(self, query):
         agent = create_pandas_dataframe_agent(self.llm, self.df, verbose=True) 
         prompt =  f"""
-            You are a master visualization generator using plotly and create the plot for the following query:
+            You are a master visualization code generator using plotly and create the plot code for the following query:
             {query}
             
+            - Test the code
+            - Ensure indentation
+            
             Output 
-            JSON format of the plotly figure
+            Code for visualization of the query inside 
+            
             
         """
         response = agent.run(prompt)

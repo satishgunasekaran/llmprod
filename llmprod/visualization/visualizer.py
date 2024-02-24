@@ -24,7 +24,7 @@ class Visualizer:
     def format_code(self, code):
         return code.replace("```python", "").replace("```", "").strip()
     
-    def analyze_df(self, query):
+    def visualize(self, query):
         agent = create_pandas_dataframe_agent(self.llm, self.df, verbose=True) 
         prompt =  f"""
             You are a master visualization code generator using plotly and create the plot code for the following query:
